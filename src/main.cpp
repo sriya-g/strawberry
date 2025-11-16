@@ -353,7 +353,12 @@ int main(int argc, char *argv[]) {
   mpris::Mpris2 mpris2(app.player(), app.playlist_manager(), app.current_albumcover_loader());
 #endif
 #ifdef HAVE_DISCORD_RPC
-  discord::RichPresence discord_rich_presence(app.player(), app.playlist_manager());
+  discord::RichPresence discord_rich_presence(app.player(),
+                                             app.playlist_manager(),
+                                             app.current_albumcover_loader(),
+                                             app.cover_providers(),
+                                             app.network(),
+                                             &app);
 #endif
 
   // Window
